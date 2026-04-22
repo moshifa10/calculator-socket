@@ -32,16 +32,31 @@ public class CalculatorServer {
             writer.println("Can I perform an operation for you : (add/sub/div/multi) nums1 num2 <- In this format.");
             String answer = readClientInput.readLine();
 
-            switch (answer){
-
+            String[] command = answer.split(" ");
+            Double calcAnswer ;
+            switch (command[0]){
                 case "add":
-                    Addition addition =
+                    Addition addition = new Addition();
+                    calcAnswer = addition.execute(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+
+                    writer.println("Answer: " + calcAnswer);
                 case "sub":
-                    Subraction subraction =
+                    Subraction subraction = new Subraction();
+                    calcAnswer = subraction.execute(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+
+                    writer.println("Answer: " + calcAnswer);
                 case "div":
-                    Division division =
+                    Division division = new  Division();
+                    calcAnswer = division.execute(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+
+                    writer.println("Answer: " + calcAnswer);
                 case "multi":
-                    Multiplication multiplication =
+                    Multiplication multiplication = new Multiplication();
+                    calcAnswer = multiplication.execute(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+
+                    writer.println("Answer: " + calcAnswer);
+                default:
+                    throw new IllegalArgumentException("Illegal command");
             }
 
 
