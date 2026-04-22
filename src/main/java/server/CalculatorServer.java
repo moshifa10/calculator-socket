@@ -25,6 +25,7 @@ public class CalculatorServer {
             Socket clientAccept = serverSocket.accept();
             System.out.println("Client have connected");
 
+
             // accept input from the client
             BufferedReader readClientInput = new BufferedReader(new InputStreamReader(clientAccept.getInputStream()));
 
